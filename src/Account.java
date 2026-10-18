@@ -4,6 +4,7 @@ public class Account {
 
     private int balance;
     private String ownerName;
+    protected String typeAccount;
     private ArrayList<String> operation = new ArrayList<>();
 
     @Override
@@ -21,8 +22,12 @@ public class Account {
         return ownerName;
     }
 
+    public String getTypeAccount(){
+        return typeAccount;
+    }
 
-    public Account(String ownerName, int balance) {
+    public Account(String typeAccount,String ownerName, int balance) {
+        this.typeAccount = typeAccount;
         this.ownerName = ownerName;
         if (balance < 0) {
             System.out.println("Баланс не может быть отрицательным");
@@ -35,14 +40,17 @@ public class Account {
         return balance;
     }
 
-    private boolean withdraw(int amount) {
+    protected void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    protected boolean withdraw(int amount) {
         if (amount <= 0 || balance < amount) {
             return false;
         }
         balance -= amount;
         return true;
     }
-
 
     public int transaction(int transactionAmount) {
         if (withdraw(transactionAmount)) {
@@ -80,4 +88,5 @@ public class Account {
         }
         return balance;
     }
+
 }
