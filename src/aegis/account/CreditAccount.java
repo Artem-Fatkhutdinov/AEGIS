@@ -1,3 +1,5 @@
+package aegis.account;
+
 public class CreditAccount extends Account {
 
     private int creditLimit;

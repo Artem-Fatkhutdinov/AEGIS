@@ -1,3 +1,5 @@
+package aegis.account;
+
 public class SimpleAccount extends Account {
 
 
